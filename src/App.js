@@ -1,32 +1,37 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 const App = () => {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
+
+  // for loading icon (it does not pass Freecodecamp tests so I am commenting it out)
   const [loading, setLoading] = useState(true);
 
-  const getData = async () => {
+  const getData = () => {
     setLoading(true);
-    const response = await axios({
+    const random = Math.floor(Math.random() * 360);
+    fetch("https://quotes15.p.rapidapi.com/quotes/random/?language_code=en", {
       method: "GET",
-      url: "https://quotes15.p.rapidapi.com/quotes/random/",
       headers: {
-        "content-type": "application/octet-stream",
         "x-rapidapi-host": "quotes15.p.rapidapi.com",
-        "x-rapidapi-key": "aa3a6291c8msh77028a8c7652b9fp13843ajsn991dc5ad6623",
-        useQueryString: true
-      },
-      params: {
-        language_code: "en"
+        "x-rapidapi-key": "aa3a6291c8msh77028a8c7652b9fp13843ajsn991dc5ad6623"
       }
-    }).catch((err) => {
-      console.log(err);
-    });
-
-    setLoading(false);
-    setQuote(response.data.content);
-    setAuthor(response.data.originator.name);
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setLoading(false);
+        setQuote(data.content);
+        setAuthor(data.originator.name);
+        document.documentElement.style.setProperty(
+          "--bg",
+          `hsl(${random},100%,70%)`
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {
@@ -35,14 +40,15 @@ const App = () => {
 
   return (
     <div id="quote-box">
-      {loading ? (
-        <div className="loading style"></div>
-      ) : (
+      {
+        // uncomment these lines to show loading icon
+        //loading ? <div className="loading style"></div> : (
         <div>
           <p id="text">{quote}</p>
           <p id="author">~ {author}</p>
         </div>
-      )}
+        // )
+      }
       <div id="new-share">
         <a
           href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="${encodeURIComponent(

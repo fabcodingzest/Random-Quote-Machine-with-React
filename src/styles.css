@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
+:root {
+  --bg: red;
+}
+
 *,
 *::before,
 *::after {
@@ -12,7 +16,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #9cecfb, #65c7f7, #0052d4);
+  background: var(--bg);
   min-height: 100vh;
 }
 
@@ -30,7 +34,7 @@ body {
 }
 
 #text {
-  color: #444;
+  color: var(--bg);
   font-family: "Pacifico", cursive;
   font-size: clamp(1rem, 6vw, 1.4rem);
 }
@@ -38,10 +42,11 @@ body {
 #author {
   flex: 4;
   font-family: monospace;
-  color: #444;
-  font-size: clamp(0.6rem, 4vw, 1rem);
+  color: var(--bg);
+  font-size: clamp(0.6rem, 5vw, 1rem);
   text-align: right;
   margin-top: 2rem;
+  margin-right: 2rem;
   align-self: end;
 }
 
@@ -52,18 +57,20 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 0.4rem;
 }
 
 #tweet-quote {
   font-size: 2.4rem;
-  color: #1da1f2;
+  color: var(--bg);
 }
 
 #new-quote {
   padding: 0.6rem 1rem;
   font-size: clamp(0.6rem, 4vw, 0.8rem);
   font-weight: bold;
-  background: yellow;
+  background: var(--bg);
+  color: #fff;
   border: none;
   border-radius: 2rem;
   transition: 0.2s transform ease-in;
@@ -71,7 +78,6 @@ body {
 }
 
 #new-quote:hover {
-  background: rgba(70, 70, 62, 0.856);
   color: #fff;
   transform: scale(1.04);
 }
