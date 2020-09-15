@@ -33,41 +33,20 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div id="quote-box">
       {loading ? (
         <div className="loading style"></div>
       ) : (
-        <div id="quote-box">
+        <div>
           <p id="text">{quote}</p>
           <p id="author">~ {author}</p>
-          <div id="new-share">
-            <a
-              href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="${encodeURIComponent(
-                quote
-              )}" ~${encodeURIComponent(author)}`}
-              rel="noopener noreferrer"
-              target="_blank"
-              id="tweet-quote"
-            >
-              <i className="fab fa-twitter-square"></i>
-            </a>
-            <button onClick={getData} id="new-quote">
-              New Quote
-            </button>
-          </div>
         </div>
       )}
-    </div>
-  );
-};
-export default App;
-
-{
-  /* <p id="text">{quote}</p>
-      <p id="author">~ {author}</p>
       <div id="new-share">
         <a
-          href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="${encodeURIComponent(quote)}" ~${encodeURIComponent(author)}`}
+          href={`https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="${encodeURIComponent(
+            quote
+          )}" ~${encodeURIComponent(author)}`}
           rel="noopener noreferrer"
           target="_blank"
           id="tweet-quote"
@@ -77,5 +56,8 @@ export default App;
         <button onClick={getData} id="new-quote">
           New Quote
         </button>
-      </div> */
-}
+      </div>
+    </div>
+  );
+};
+export default App;

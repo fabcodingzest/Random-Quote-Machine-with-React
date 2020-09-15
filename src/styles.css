@@ -8,19 +8,17 @@
   box-sizing: border-box;
 }
 
-/* $bg: linear-gradient(to right, #9cecfb, #65c7f7, #0052d4); */
-
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, #9cecfb, #65c7f7, #0052d4);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #quote-box {
   width: 90%;
-  max-width: 28rem;
+  min-width: 14rem;
   min-height: 20rem;
   background: white;
   border-radius: 0.8rem;
@@ -48,8 +46,8 @@ body {
 }
 
 #new-share {
-  width: 60%;
-  min-width: 5rem;
+  width: 70%;
+  max-width: 15rem;
   margin: 2rem;
   display: flex;
   justify-content: space-between;
@@ -63,12 +61,13 @@ body {
 
 #new-quote {
   padding: 0.6rem 1rem;
-  font-size: 1rem;
+  font-size: clamp(0.6rem, 4vw, 0.8rem);
   font-weight: bold;
   background: yellow;
   border: none;
   border-radius: 2rem;
   transition: 0.2s transform ease-in;
+  margin-left: 0.4rem;
 }
 
 #new-quote:hover {
@@ -94,11 +93,22 @@ body {
 
 .style {
   border-style: double;
-  border-color: #444 #fff #fff;
+  border-color: #444 #fff #444;
 }
 
 @keyframes spin {
   100% {
     transform: rotate(359deg);
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  #quote-box {
+    max-width: 30rem;
+    min-width: 25rem;
+  }
+
+  #new-share {
+    width: 45%;
   }
 }
