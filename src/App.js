@@ -23,6 +23,7 @@ const App = () => {
     }).catch((err) => {
       console.log(err);
     });
+
     setLoading(false);
     setQuote(response.data.content);
     setAuthor(response.data.originator.name);
