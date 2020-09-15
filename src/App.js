@@ -26,7 +26,7 @@ const App = () => {
         setAuthor(data.originator.name);
         document.documentElement.style.setProperty(
           "--bg",
-          `hsl(${random},100%,70%)`
+          `hsl(${random},100%,35%)`
         );
       })
       .catch((err) => {
