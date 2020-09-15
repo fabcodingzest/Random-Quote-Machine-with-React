@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* $bg: linear-gradient(to right, #9cecfb, #65c7f7, #0052d4); */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #9cecfb, #65c7f7, #0052d4);
+  height: 100vh;
+}
+
+#quote-box {
+  width: 90%;
+  max-width: 28rem;
+  min-height: 20rem;
+  background: white;
+  border-radius: 0.8rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#text {
+  /* flex: 1; */
+  font-family: "Pacifico", cursive;
+  font-size: clamp(1rem, 6vw, 1.4rem);
+}
+
+#author {
+  flex: 4;
+  font-family: monospace;
+  font-size: clamp(0.6rem, 6vw, 1rem);
+  text-align: right;
+  margin-top: 2rem;
+  align-self: end;
+}
+
+#new-share {
+  width: 60%;
+  min-width: 5rem;
+  margin: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#tweet-quote {
+  font-size: 2.4rem;
+  color: #1da1f2;
+}
+
+#new-quote {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: yellow;
+  border: none;
+  border-radius: 2rem;
+  transition: 0.2s transform ease-in;
+}
+
+#new-quote:hover {
+  background: rgba(70, 70, 62, 0.856);
+  color: #fff;
+  transform: scale(1.04);
+}
+
+#new-quote:active {
+  transform: translateY(2px);
+}
+
+.loading {
+  display: inline-block;
+  margin: 5em;
+  border-width: 30px;
+  border-radius: 50%;
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  -o-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+.style {
+  border-style: double;
+  border-color: #444 #fff #fff;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(359deg);
+  }
+}
